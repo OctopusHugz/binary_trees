@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+#define BTIP binary_tree_is_perfect
 /**
  *  binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree: pointer to the root node
@@ -12,12 +13,12 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	/* Check if node is leaf */
 	if (!tree->left && !tree->right)
 		return (1);
-	/* check if number of leaves is odd */	
+	/* check if number of leaves is odd */
 	if (binary_tree_leaves(tree) % 2 == 1)
 		return (0);
 
 	if (tree->left && tree->right)
-		return (binary_tree_is_perfect(tree->left) && binary_tree_is_perfect(tree->right));
+		return (BTIP(tree->left) && BTIP(tree->right));
 
 	return (0);
 }
