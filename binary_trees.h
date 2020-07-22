@@ -3,6 +3,12 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+#ifndef FUNCTION_LIKE_MACRO_H
+#define FUNCTION_LIKE_MACRO_H
+#define MAX(x, y) ((x > y) ? (x) : (y))
+#endif /* FUNCTION_LIKE_MACRO_H */
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -19,7 +25,6 @@ struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 };
-
 typedef struct binary_tree_s binary_tree_t;
 
 void binary_tree_print(const binary_tree_t *);
@@ -58,8 +63,11 @@ int binary_tree_is_full(const binary_tree_t *tree);
 
 int binary_tree_is_perfect(const binary_tree_t *tree);
 
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
+
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
+const binary_tree_t *find_root(const binary_tree_t *node);
 #endif /* _BINARY_TREES_H_ */
